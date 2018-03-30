@@ -51,10 +51,10 @@ def get_welcome_response():
     session_attributes = {}
     card_title = "Welcome"
     speech_output = "Welcome to the Dandan Skill. " \
-                    "Please tell me what you would like to tell Dandan today."
+                    "Please tell me what you would like to tell Dandan today"
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
-    reprompt_text = "Please tell me what you would like to tell Dandan today." \
+    reprompt_text = "Please tell me what you would like to tell Dandan today" \
                     "For example you can tell her you will always love her."
     should_end_session = False
     return build_response(session_attributes, build_speechlet_response(
@@ -130,7 +130,6 @@ def AlwaysLoveHer(intent, session):
     card_title = "Kai will always love you"
     speech_output = "Dandan, Kai will always love you. " \
                     "He just doesn't always like you."
-
     should_end_session = False
 
     # Setting reprompt_text to None signifies that we do not want to reprompt
@@ -172,7 +171,7 @@ def on_intent(intent_request, session):
     intent_name = intent_request['intent']['name']
 
     # Dispatch to your skill's intent handlers
-    if intent_name == "AlwaysLoveHer":
+    if intent_name == "AlwaysLove":
         return alwaysloveher(intent, session)
     elif intent_name == "WhatsMyColorIntent":
         return get_color_from_session(intent, session)
