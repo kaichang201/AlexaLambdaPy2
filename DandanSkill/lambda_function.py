@@ -55,7 +55,7 @@ def get_welcome_response():
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
     reprompt_text = "Please tell me what you would like to tell Dandan today" \
-                    "For example you can tell her you will always love her."
+                    "For example you can tell her you will always love her"
     should_end_session = False
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
@@ -122,15 +122,29 @@ def get_color_from_session(intent, session):
     # understood, the session will end.
     return build_response(session_attributes, build_speechlet_response(
         intent['name'], speech_output, reprompt_text, should_end_session))
+
+def washdishes(intent, session):
+    session_attributes = {}
+    reprompt_text = None
+
+    speech_output = "Dandan please wash the dishes." \
+                        " Goodbye."
+    should_end_session = True
+
+    # Setting reprompt_text to None signifies that we do not want to reprompt
+    # the user. If the user does not respond or says something that is not
+    # understood, the session will end.
+    return build_response(session_attributes, build_speechlet_response(
+        intent['name'], speech_output, reprompt_text, should_end_session))
         
 def AlwaysLoveHer(intent, session):
     session_attributes = {}
     reprompt_text = None
 
     card_title = "Kai will always love you"
-    speech_output = "Dandan, Kai will always love you. " \
-                    "He just doesn't always like you."
-    should_end_session = False
+    speech_output = "Dandan, Kai will always love you " \
+                    "But he just doesn't always like you."
+    should_end_session = True
 
     # Setting reprompt_text to None signifies that we do not want to reprompt
     # the user. If the user does not respond or says something that is not
@@ -173,6 +187,8 @@ def on_intent(intent_request, session):
     # Dispatch to your skill's intent handlers
     if intent_name == "AlwaysLove":
         return alwaysloveher(intent, session)
+    elif intent_name == "DoDishes":
+        return washdishes(intent, session)
     elif intent_name == "WhatsMyColorIntent":
         return get_color_from_session(intent, session)
     elif intent_name == "AMAZON.HelpIntent":
