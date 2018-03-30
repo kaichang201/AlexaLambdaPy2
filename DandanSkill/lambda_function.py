@@ -137,7 +137,7 @@ def washdishes(intent, session):
     return build_response(session_attributes, build_speechlet_response(
         intent['name'], speech_output, reprompt_text, should_end_session))
         
-def AlwaysLoveHer(intent, session):
+def alwaysloveher(intent, session):
     session_attributes = {}
     reprompt_text = None
 
