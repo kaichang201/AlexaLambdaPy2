@@ -187,7 +187,7 @@ def on_intent(intent_request, session):
     # Dispatch to your skill's intent handlers
     if intent_name == "AlwaysLove":
         return alwaysloveher(intent, session)
-    elif intent_name == "DoDishes":
+    elif intent_name == "WashDishes":
         return washdishes(intent, session)
     elif intent_name == "WhatsMyColorIntent":
         return get_color_from_session(intent, session)
