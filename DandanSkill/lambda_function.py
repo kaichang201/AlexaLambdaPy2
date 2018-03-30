@@ -141,7 +141,6 @@ def alwaysloveher(intent, session):
     session_attributes = {}
     reprompt_text = None
 
-    card_title = "Kai will always love you"
     speech_output = "Dandan, Kai will always love you " \
                     "But he just doesn't always like you."
     should_end_session = True
@@ -152,8 +151,6 @@ def alwaysloveher(intent, session):
     return build_response(session_attributes, build_speechlet_response(
         intent['name'], speech_output, reprompt_text, should_end_session))
         
-
-
 
 # --------------- Events ------------------
 
